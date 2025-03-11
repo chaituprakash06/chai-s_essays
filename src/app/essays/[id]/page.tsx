@@ -5,8 +5,19 @@ import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
+// Define a type for the essay metadata
+type EssayMetadata = {
+  title: string;
+  date: string;
+};
+
+// Define a type for the essayMeta object with index signature
+type EssayMetaCollection = {
+  [key: string]: EssayMetadata;
+};
+
 // Essay metadata - keep in sync with home page
-const essayMeta = {
+const essayMeta: EssayMetaCollection = {
   "corporate-happiness": {
     title: "Corporate Happiness",
     date: "March 11, 2025"
