@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react"
 
 import { cn } from "@/lib/utils";
 
@@ -33,6 +34,7 @@ export default function RootLayout({
           </header>
           <main className="flex-1 container mx-auto px-4 py-8">
             {children}
+            <Analytics />
           </main>
           <footer className="py-6 border-t border-zinc-200 bg-white">
             <div className="container mx-auto px-4">
