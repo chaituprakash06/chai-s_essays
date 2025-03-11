@@ -70,7 +70,7 @@ export default function EssayPage() {
           <CardContent className="pt-6">
             <div className="text-center py-12">
               <h1 className="text-2xl font-bold text-zinc-900 mb-4">Essay Not Found</h1>
-              <p className="text-zinc-600">Sorry, the essay you're looking for doesn't exist.</p>
+              <p className="text-zinc-600">Sorry, the essay you&apos;re looking for doesn&apos;t exist.</p>
             </div>
           </CardContent>
         </Card>
