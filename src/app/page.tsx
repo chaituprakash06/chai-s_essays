@@ -9,7 +9,12 @@ const essays = [
     date: "March 11, 2025",
     excerpt: "This essay explores the facade of 'innovative' culture in corporate law and the concept of happiness in professional service work."
   },
-  // Add more essays here when you have them
+  {
+    id: "black-swan",
+    title: "Adapting to Black-Swan Events as a Startup Founder",
+    date: "March 18, 2025",
+    excerpt: "Exploring the paradoxical relationship between startup founders and rare, unexpected events that shape business trajectories."
+  }
 ];
 
 export default function Home() {

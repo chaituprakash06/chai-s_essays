@@ -22,6 +22,10 @@ const essayMeta: EssayMetaCollection = {
     title: "Corporate Happiness",
     date: "March 11, 2025"
   },
+  "black-swan": {
+    title: "Adapting to Black-Swan Events as a Startup Founder",
+    date: "March 18, 2025"
+  }
   // Add more essays here when you have them
 };
 
