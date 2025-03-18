@@ -10,9 +10,9 @@ const essays = [
     excerpt: "This essay explores the facade of 'innovative' culture in corporate law and the concept of happiness in professional service work."
   },
   {
-    id: "black-swan",
+    id: "black-swan-events", // Make sure this matches exactly with what's in the essay page component
     title: "Adapting to Black-Swan Events as a Startup Founder",
-    date: "March 18, 2025",
+    date: "March 15, 2025",
     excerpt: "Exploring the paradoxical relationship between startup founders and rare, unexpected events that shape business trajectories."
   }
 ];
