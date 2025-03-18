@@ -22,11 +22,17 @@ const essayMeta: EssayMetaCollection = {
     title: "Corporate Happiness",
     date: "March 11, 2025"
   },
-  "black-swan": {
+  "black-swan-events": {
     title: "Adapting to Black-Swan Events as a Startup Founder",
-    date: "March 18, 2025"
+    date: "March 15, 2025"
   }
   // Add more essays here when you have them
+};
+
+// Map essay IDs to file names - try multiple options for better compatibility
+const essayFileMap: Record<string, string[]> = {
+  "corporate-happiness": ["essay_1.html", "corporate-happiness.html"],
+  "black-swan-events": ["essay_2.html", "black-swan-events.html"]
 };
 
 export default function EssayPage() {
@@ -46,19 +52,34 @@ export default function EssayPage() {
       setError(null);
       
       try {
-        // Map essay ID to file name (you can adjust this mapping as needed)
-        const fileName = essayId === 'corporate-happiness' ? 'essay_1.html' : `${essayId}.html`;
-        const response = await fetch(`/${fileName}`);
+        let content = '';
+        let loaded = false;
         
-        if (!response.ok) {
-          throw new Error(`Essay not found (${response.status})`);
+        // Try all possible file names for this essay
+        const possibleFiles = essayFileMap[essayId] || [`${essayId}.html`];
+        
+        for (const fileName of possibleFiles) {
+          try {
+            const response = await fetch(`/${fileName}`);
+            if (response.ok) {
+              content = await response.text();
+              loaded = true;
+              break;
+            }
+          } catch (e) {
+            console.log(`Tried ${fileName}, but failed: ${e}`);
+            // Continue to next file name
+          }
         }
         
-        const content = await response.text();
+        if (!loaded) {
+          throw new Error(`Essay not found. Tried multiple file names.`);
+        }
+        
         setEssayContent(content);
       } catch (error) {
         console.error('Error loading essay:', error);
-        setError('Failed to load essay. It may not exist or there was a network error.');
+        setError('Failed to load essay. It may not exist or there was a network error. Please check your deployment settings.');
       } finally {
         setLoading(false);
       }
@@ -117,6 +138,10 @@ export default function EssayPage() {
           ) : error ? (
             <div className="text-center py-8">
               <p className="text-red-500">{error}</p>
+              <p className="mt-4 text-zinc-600">
+                Make sure the essay files (essay_1.html, essay_2.html) are in the public directory
+                of your Vercel deployment.
+              </p>
             </div>
           ) : (
             <div dangerouslySetInnerHTML={{ __html: essayContent }} />
