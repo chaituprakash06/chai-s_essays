@@ -32,7 +32,7 @@ const essayMeta: EssayMetaCollection = {
 // Map essay IDs to file names - try multiple options for better compatibility
 const essayFileMap: Record<string, string[]> = {
   "corporate-happiness": ["essay_1.html", "corporate-happiness.html"],
-  "black-swan-events": ["essay_2.html", "black-swan-events.html"]
+  "black-swan-events": ["essay_2.html", "black-swan.html"]
 };
 
 export default function EssayPage() {
