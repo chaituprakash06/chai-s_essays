@@ -25,6 +25,10 @@ const essayMeta: EssayMetaCollection = {
   "black-swan-events": {
     title: "Adapting to Black-Swan Events as a Startup Founder",
     date: "March 15, 2025"
+  },
+  "rules-in-europe": {
+    title: "History of Rules in Europe",
+    date: "March 23, 2025"
   }
   // Add more essays here when you have them
 };
@@ -74,19 +78,31 @@ export default function EssayPage() {
           </article>`;
         } else if (essayId === 'black-swan-events') {
           content = `<article class="essay-content">
-            <p>Starting TalentLex made me realise the only useful skill that matters in any kind of startup is adapting to black-swan events. This in itself is somewhat paradoxical - see below.</p>
+            <p>Starting TalentLex made me realise the only useful skill that matters in any kind of startup is adapting to black-swan events.</p>
 
             <p>A quick definition of what black swan events are: 'rare and unexpected events with severe consequences with the potential to cause a change in a formerly held belief or system of beliefs'.</p>
 
             <p>In Nassim Nicholas Taleb's book, black swans are described as rare events that only occur due to the fact that we consider them unlikely. 9/11 was a black swan event, because no one expected a terrorist attack on the twin towers and the Indian Ocean Pacific Tsunami in 2004 was a black swan, because no one could have predicted a natural disaster of such scale.</p>
 
-            <p>When you write code in anticipation of users, all sorts of unexpected things happen: the code breaks, no one cares and you get less users than expected using the product. The default state of operation is silence; this makes revenue that much more of a dopamine rush, because it is such a rare event. But if one were to take the advice of successful startup incubators like Y Combinator and optimise for revenue from day 1, is there such a thing as a black swan in a startup at all?</p>
+            <p>When you write code in anticipation of users using the output of that code, all sorts of unexpected things happen: the code breaks, no one cares or you get less users than expected. The default state of existence is silence, which makes revenue that much more exciting, because it is such a rare event. Yet if one were to take the advice of successful startup incubators like Y Combinator and optimise for revenue from day 1, is there such a thing as a black swan in a startup at all?</p>
 
             <p>In a recent video (as of this date) by Dalton Caldwell and Michael Seibel, the idea of the 'hedonic treadmill' was explored. This is the idea that we adapt to life's circumstances regardless of the situation: bad or good. Therefore one might argue startup founders are the only group of people resistant to the extreme effects of black swan events, because the unexpected occurs on a daily basis.</p>
 
-            <p>Rather, I have learned an alternative truth: it is your job as a founder to chase black swans, because they are the best indicator that you are moving in some direction. In a society where starting a business is glorified, black swans are not the same as they were 20 years ago and so chasing smaller markets or building seemingly unfeasible tech should seem like a rarity, because they are all signs of doing something different.</p>
+            <p>Nonethelss I want to propose an alternative truth: it is your job as a founder to chase black swans, because they are the best indicator that you are moving in some direction. In a society where starting a business is glorified, black swans are not the same as they were 20 years ago. This means chasing smaller markets or building seemingly unfeasible tech should seem like a rarity, because they are all signs of doing something different.</p>
           </article>`;
-        } else {
+          } else if (essayId === 'rules-in-europe') {
+          content = `<article class="essay-content">
+          <p>Europe is a depressing place to build technology products. Having lived in London and soaked up the European approach to innovation for three years, I realised that the region's history sheds useful light on why this is so.</p>
+
+          <p>If you tell a friend your business idea in most European countries, their first instinct will be to question the long-run viability of your business, how feasible your technology is etc… In the United States, that same person is more likely to look for ways in which your idea can come to fruition. The American Dream relies on every working-class individual believing they can be a millionaire, whilst Europe's history is rooted in robust regulatory enforcement.</p>
+          
+          <p>Take the Cold War for example; Germany served as a battleground between the Soviets and Americans given the strict need to prevent recurring warfare post-WW2. There was a strict sense of embedding conformity to regulations and securing lasting peace, whilst America focused on becoming a global superpower. People in Europe are very focused on preserving their rights and 'getting the most' out of the law.</p>
+          
+          <p>This inherently punishes innovators, because most large-scale innovation in America came from legal grey areas (take for example Facebook gambling with users' privacy, or Airbnb introducing the foreign concept of staying in strangers' homes, or Uber introducing the grey area of hopping into strangers' cars). These ideas presented ethical questions but turned out to satisfy large-scale consumer demand in the long run. I would bet that none of these ideas could possibly take off in Europe, where people are less open to finding newer (yet questionable) ways of conducting economic trade.</p>
+          
+          <p>Finally, a note on the UK. I suspect the UK has immense potential to be more innovative, however much of the infrastructure should change. The UK is home to Sir Tim Berners-Lee (founder of the World Wide Web), Google's DeepMind and two of the greatest technical universities in the world (Oxbridge). The reason for the UK's stagnation in technology compared to the US is because there is instilled in it a deep service-based economy, so most technical ideas do not extend beyond these sectors (i.e. finance, retail, hospitality). Examples of great technical successes include: Revolut (pioneering digital finance), the mass adoption of self-service ordering and AI kiosks (at least in London).</p>
+                  </article>`;
+          } else {
           console.error("Unknown essay ID:", essayId);
           throw new Error("Essay not found");
         }

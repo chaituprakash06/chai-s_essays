@@ -14,6 +14,12 @@ const essays = [
     title: "Adapting to Black-Swan Events as a Startup Founder",
     date: "March 15, 2025",
     excerpt: "Exploring the paradoxical relationship between startup founders and rare, unexpected events that shape business trajectories."
+  },
+  {
+    id: "rules-in-europe", // Make sure this matches exactly with what's in the essay page component
+    title: "History of Rules in Europe",
+    date: "March 23, 2025",
+    excerpt: "My view on why Europe fails to innovate"
   }
 ];
 
