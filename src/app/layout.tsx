@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react"
+import { Instagram, Github, Mail } from "lucide-react"; // Import the icons
 
 import { cn } from "@/lib/utils";
 
@@ -24,28 +25,21 @@ export default function RootLayout({
     <html lang="en">
       <body className={cn(
         fontSans.variable,
-        "min-h-screen bg-zinc-100"
+        "min-h-screen bg-white"
       )}>
         <div className="min-h-screen flex flex-col">
-          <header className="py-6 border-b border-zinc-200 bg-white">
-            <div className="container mx-auto px-4">
-              <h1 className="text-3xl font-bold text-zinc-900">Chai&apos;s Essays</h1>
-            </div>
-          </header>
-          <main className="flex-1 container mx-auto px-4 py-8">
+          <main className="flex-1 pt-8">
             {children}
             <Analytics />
           </main>
-          <footer className="py-6 border-t border-zinc-200 bg-white">
-            <div className="container mx-auto px-4">
-              <p className="text-center text-zinc-600">
-                You can reach me at:{" "}
-                <a href="https://www.instagram.com/_chailattte_/" className="text-zinc-900 hover:underline">Instagram</a>{" | "}
-                <a href="https://github.com/chaituprakash06" className="text-zinc-900 hover:underline">GitHub</a>{" | "}
-                <a href="mailto:chai@talentlex.app" className="text-zinc-900 hover:underline">Email</a>
-              </p>
-            </div>
-          </footer>
+          <div className="footer-container">
+            <p className="footer-text">
+              You can reach me at: {" "}
+              <a href="https://www.instagram.com/_chailattte_/" style={{ color: '#0000FF', textDecoration: 'none' }}><Instagram className="inline w-4 h-4 mr-1" /> Instagram</a>{" | "}
+              <a href="https://github.com/chaituprakash06" style={{ color: '#0000FF', textDecoration: 'none' }}><Github className="inline w-4 h-4 mr-1" /> GitHub</a>{" | "}
+              <a href="mailto:chai@talentlex.app" style={{ color: '#0000FF', textDecoration: 'none' }}><Mail className="inline w-4 h-4 mr-1" /> Email</a>
+            </p>
+          </div>
         </div>
       </body>
     </html>

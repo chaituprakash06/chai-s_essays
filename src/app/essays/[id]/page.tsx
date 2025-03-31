@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 // Define a type for the essay metadata
 type EssayMetadata = {
@@ -40,11 +39,6 @@ export default function EssayPage() {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Debug log for URL params
-  console.log("Essay ID from URL:", essayId);
-  console.log("Available essay IDs:", Object.keys(essayMeta));
-  console.log("Metadata for this ID exists:", !!essayMeta[essayId]);
-
   // Get metadata for this essay
   const meta = essayMeta[essayId];
 
@@ -53,8 +47,6 @@ export default function EssayPage() {
     const loadEssay = async () => {
       setLoading(true);
       setError(null);
-      
-      console.log("Loading essay content for ID:", essayId);
       
       try {
         // Simplified switch to determine which essay content to show
@@ -90,24 +82,22 @@ export default function EssayPage() {
 
             <p>Nonethelss I want to propose an alternative truth: it is your job as a founder to chase black swans, because they are the best indicator that you are moving in some direction. In a society where starting a business is glorified, black swans are not the same as they were 20 years ago. This means chasing smaller markets or building seemingly unfeasible tech should seem like a rarity, because they are all signs of doing something different.</p>
           </article>`;
-          } else if (essayId === 'rules-in-europe') {
+        } else if (essayId === 'rules-in-europe') {
           content = `<article class="essay-content">
-          <p>Europe is a depressing place to build technology products. Having lived in London and soaked up the European approach to innovation for three years, I realised that the region's history sheds useful light on why this is so.</p>
+            <p>Europe is a depressing place to build technology products. Having lived in London and soaked up the European approach to innovation for three years, I realised that the region's history sheds useful light on why this is so.</p>
 
-          <p>If you tell a friend your business idea in most European countries, their first instinct will be to question the long-run viability of your business, how feasible your technology is etc… In the United States, that same person is more likely to look for ways in which your idea can come to fruition. The American Dream relies on every working-class individual believing they can be a millionaire, whilst Europe's history is rooted in robust regulatory enforcement.</p>
-          
-          <p>Take the Cold War for example; Germany served as a battleground between the Soviets and Americans given the strict need to prevent recurring warfare post-WW2. There was a strict sense of embedding conformity to regulations and securing lasting peace, whilst America focused on becoming a global superpower. People in Europe are very focused on preserving their rights and 'getting the most' out of the law.</p>
-          
-          <p>This inherently punishes innovators, because most large-scale innovation in America came from legal grey areas (take for example Facebook gambling with users' privacy, or Airbnb introducing the foreign concept of staying in strangers' homes, or Uber introducing the grey area of hopping into strangers' cars). These ideas presented ethical questions but turned out to satisfy large-scale consumer demand in the long run. I would bet that none of these ideas could possibly take off in Europe, where people are less open to finding newer (yet questionable) ways of conducting economic trade.</p>
-          
-          <p>Finally, a note on the UK. I suspect the UK has immense potential to be more innovative, however much of the infrastructure should change. The UK is home to Sir Tim Berners-Lee (founder of the World Wide Web), Google's DeepMind and two of the greatest technical universities in the world (Oxbridge). The reason for the UK's stagnation in technology compared to the US is because there is instilled in it a deep service-based economy, so most technical ideas do not extend beyond these sectors (i.e. finance, retail, hospitality). Examples of great technical successes include: Revolut (pioneering digital finance), the mass adoption of self-service ordering and AI kiosks (at least in London).</p>
-                  </article>`;
-          } else {
-          console.error("Unknown essay ID:", essayId);
+            <p>If you tell a friend your business idea in most European countries, their first instinct will be to question the long-run viability of your business, how feasible your technology is etc… In the United States, that same person is more likely to look for ways in which your idea can come to fruition. The American Dream relies on every working-class individual believing they can be a millionaire, whilst Europe's history is rooted in robust regulatory enforcement.</p>
+            
+            <p>Take the Cold War for example; Germany served as a battleground between the Soviets and Americans given the strict need to prevent recurring warfare post-WW2. There was a strict sense of embedding conformity to regulations and securing lasting peace, whilst America focused on becoming a global superpower. People in Europe are very focused on preserving their rights and 'getting the most' out of the law.</p>
+            
+            <p>This inherently punishes innovators, because most large-scale innovation in America came from legal grey areas (take for example Facebook gambling with users' privacy, or Airbnb introducing the foreign concept of staying in strangers' homes, or Uber introducing the grey area of hopping into strangers' cars). These ideas presented ethical questions but turned out to satisfy large-scale consumer demand in the long run. I would bet that none of these ideas could possibly take off in Europe, where people are less open to finding newer (yet questionable) ways of conducting economic trade.</p>
+            
+            <p>Finally, a note on the UK. I suspect the UK has immense potential to be more innovative, however much of the infrastructure should change. The UK is home to Sir Tim Berners-Lee (founder of the World Wide Web), Google's DeepMind and two of the greatest technical universities in the world (Oxbridge). The reason for the UK's stagnation in technology compared to the US is because there is instilled in it a deep service-based economy, so most technical ideas do not extend beyond these sectors (i.e. finance, retail, hospitality). Examples of great technical successes include: Revolut (pioneering digital finance), the mass adoption of self-service ordering and AI kiosks (at least in London).</p>
+          </article>`;
+        } else {
           throw new Error("Essay not found");
         }
         
-        console.log("Content loaded successfully");
         setEssayContent(content);
       } catch (error) {
         console.error('Error loading essay:', error);
@@ -124,60 +114,50 @@ export default function EssayPage() {
 
   // If the essay doesn't exist in our metadata
   if (!meta) {
-    console.log("No metadata found for ID:", essayId);
     return (
-      <div className="max-w-4xl mx-auto py-8">
-        <div className="mb-8">
+      <div className="pg-essay-page">
+        <div className="pg-essay-wrapper">
           <Link 
             href="/"
-            className="inline-flex items-center text-zinc-600 hover:text-zinc-900 transition-colors"
+            className="pg-back-link"
           >
-            ← Back to Home
+            ← Back to all essays
           </Link>
+          
+          <div className="py-12">
+            <h1 className="pg-essay-title">Essay Not Found</h1>
+            <p>Sorry, the essay you&apos;re looking for doesn&apos;t exist.</p>
+          </div>
         </div>
-        <Card className="border-zinc-200 bg-white shadow-sm">
-          <CardContent className="pt-6">
-            <div className="text-center py-12">
-              <h1 className="text-2xl font-bold text-zinc-900 mb-4">Essay Not Found</h1>
-              <p className="text-zinc-600">Sorry, the essay you&apos;re looking for doesn&apos;t exist.</p>
-              <p className="mt-4 text-zinc-500">Debug info: Requested essay ID: &quot;{essayId}&quot;</p>
-            </div>
-          </CardContent>
-        </Card>
       </div>
     );
   }
 
   return (
-    <div className="max-w-4xl mx-auto py-8">
-      <div className="mb-8">
+    <div className="pg-essay-page">
+      <div className="pg-essay-wrapper">
         <Link 
           href="/"
-          className="inline-flex items-center text-zinc-600 hover:text-zinc-900 transition-colors"
+          className="pg-back-link"
         >
-          ← Back to Home
+          ← Back to all essays
         </Link>
+        
+        <h1 className="pg-essay-title">{meta.title}</h1>
+        <span className="pg-essay-date">{meta.date}</span>
+        
+        {loading ? (
+          <div className="py-6 flex justify-center items-center w-full">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-zinc-900"></div>
+          </div>
+        ) : error ? (
+          <div className="py-8">
+            <p className="text-red-500">{error}</p>
+          </div>
+        ) : (
+          <div dangerouslySetInnerHTML={{ __html: essayContent }} />
+        )}
       </div>
-      
-      <Card className="border-zinc-200 bg-white shadow-sm">
-        <CardHeader>
-          <CardTitle>{meta.title}</CardTitle>
-          <p className="text-sm text-zinc-500">{meta.date}</p>
-        </CardHeader>
-        <CardContent>
-          {loading ? (
-            <div className="py-12 flex justify-center items-center">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-zinc-900"></div>
-            </div>
-          ) : error ? (
-            <div className="text-center py-8">
-              <p className="text-red-500">{error}</p>
-            </div>
-          ) : (
-            <div dangerouslySetInnerHTML={{ __html: essayContent }} />
-          )}
-        </CardContent>
-      </Card>
     </div>
   );
 }

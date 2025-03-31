@@ -34,31 +34,74 @@ body {
   color: hsl(var(--foreground));
 }
 
-/* Add this to your globals.css or create a new CSS file */
+/* Paul Graham-style essay layout */
+.pg-essay-page {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.pg-essay-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 550px;
+}
+
+.pg-back-link {
+  margin-bottom: 2rem;
+  color: #777;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.pg-back-link:hover {
+  text-decoration: underline;
+}
+
+.pg-essay-title {
+  color: #511;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.pg-essay-date {
+  color: #777;
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+  display: block;
+}
 
 .essay-content {
-  max-width: 100%;
-  line-height: 1.8;
+  max-width: 550px;
+  line-height: 1.6;
+  text-align: left;
 }
 
 .essay-content h1 {
-  font-size: 2rem;
+  font-size: 1.3rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
-  color: #18181b;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #511;
 }
 
 .essay-content h2 {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  color: #27272a;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #511;
 }
 
 .essay-content p {
   margin-bottom: 1.25rem;
-  color: #3f3f46;
+  text-align: left;
+  color: #444;
+  font-size: 1rem;
 }
 
 .essay-content ul, .essay-content ol {
@@ -71,8 +114,98 @@ body {
 }
 
 .essay-content blockquote {
-  border-left: 4px solid #e4e4e7;
+  border-left: 3px solid #999;
   padding-left: 1rem;
   font-style: italic;
   margin: 1.5rem 0;
+  color: #555;
+}
+
+/* Home page PG style */
+.pg-home {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.pg-home-title {
+  color: #511;
+  font-weight: bold;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.pg-home-intro {
+  max-width: 550px;
+  color: #444;
+  margin-bottom: 2.5rem;
+}
+
+.pg-essay-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 550px;
+}
+
+.pg-essay-item {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1.5rem;
+}
+
+.pg-essay-item-title {
+  color: #511;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+  text-decoration: none;
+}
+
+.pg-essay-item-title:hover {
+  text-decoration: underline;
+}
+
+.pg-essay-item-date {
+  color: #777;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.pg-essay-item-excerpt {
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border-top: 1px solid #eee;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+.footer-text {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-link {
+  color: #555;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  margin: 0 4px;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
 }
