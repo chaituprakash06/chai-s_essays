@@ -76,3 +76,123 @@ body {
   font-style: italic;
   margin: 1.5rem 0;
 }
+
+/* Enhanced essay styling - add to globals.css */
+
+/* Main essay container */
+.essay-content {
+  max-width: 100%;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  color: #333;
+}
+
+/* Essay headings */
+.essay-content h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 1.5rem 0;
+  color: #111;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.essay-content h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+/* Paragraphs with better spacing */
+.essay-content p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+/* Lists styling */
+.essay-content ul, 
+.essay-content ol {
+  margin: 1.25rem 0 1.5rem 0;
+  padding-left: 1.8rem;
+}
+
+.essay-content ul li, 
+.essay-content ol li {
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
+}
+
+/* Blockquote with improved styling */
+.essay-content blockquote {
+  border-left: 4px solid #ddd;
+  padding: 0.8rem 0 0.8rem 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: #555;
+  background-color: #f9f9f9;
+}
+
+/* Essay card styling for better separation */
+.essay-card {
+  border-radius: 0.5rem;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.essay-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Essay header styling */
+.essay-header {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 1.5rem 2rem;
+}
+
+/* Essay title styling */
+.essay-title {
+  font-size: 1.8rem;
+  color: #111;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+/* Essay date styling */
+.essay-date {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+/* Essay body styling */
+.essay-body {
+  padding: 2rem;
+}
+
+/* Better links within essays */
+.essay-content a {
+  color: #0366d6;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(3, 102, 214, 0.3);
+  transition: border-color 0.2s ease;
+}
+
+.essay-content a:hover {
+  border-bottom-color: #0366d6;
+}
+
+/* Visual dividers between essays on home page */
+.essay-item {
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.essay-item:last-child {
+  border-bottom: none;
+}

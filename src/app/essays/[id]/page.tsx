@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 // Define a type for the essay metadata
 type EssayMetadata = {
@@ -44,11 +43,6 @@ export default function EssayPage() {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Debug log for URL params
-  console.log("Essay ID from URL:", essayId);
-  console.log("Available essay IDs:", Object.keys(essayMeta));
-  console.log("Metadata for this ID exists:", !!essayMeta[essayId]);
-
   // Get metadata for this essay
   const meta = essayMeta[essayId];
 
@@ -57,8 +51,6 @@ export default function EssayPage() {
     const loadEssay = async () => {
       setLoading(true);
       setError(null);
-      
-      console.log("Loading essay content for ID:", essayId);
       
       try {
         // Simplified switch to determine which essay content to show
@@ -123,7 +115,6 @@ export default function EssayPage() {
           throw new Error("Essay not found");
         }
         
-        console.log("Content loaded successfully");
         setEssayContent(content);
       } catch (error) {
         console.error('Error loading essay:', error);
@@ -140,47 +131,43 @@ export default function EssayPage() {
 
   // If the essay doesn't exist in our metadata
   if (!meta) {
-    console.log("No metadata found for ID:", essayId);
     return (
-      <div className="max-w-4xl mx-auto py-8">
+      <div className="max-w-3xl mx-auto py-8">
         <div className="mb-8">
           <Link 
             href="/"
-            className="inline-flex items-center text-zinc-600 hover:text-zinc-900 transition-colors"
+            className="text-zinc-600 hover:text-zinc-900 transition-colors"
           >
             ← Back to Home
           </Link>
         </div>
-        <Card className="border-zinc-200 bg-white shadow-sm">
-          <CardContent className="pt-6">
-            <div className="text-center py-12">
-              <h1 className="text-2xl font-bold text-zinc-900 mb-4">Essay Not Found</h1>
-              <p className="text-zinc-600">Sorry, the essay you&apos;re looking for doesn&apos;t exist.</p>
-              <p className="mt-4 text-zinc-500">Debug info: Requested essay ID: &quot;{essayId}&quot;</p>
-            </div>
-          </CardContent>
-        </Card>
+        <div className="essay-card">
+          <div className="py-12 text-center">
+            <h1 className="text-2xl font-bold text-zinc-900 mb-4">Essay Not Found</h1>
+            <p className="text-zinc-600">Sorry, the essay you&apos;re looking for doesn&apos;t exist.</p>
+          </div>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="max-w-4xl mx-auto py-8">
-      <div className="mb-8">
+    <div className="max-w-3xl mx-auto py-8">
+      <div className="mb-6">
         <Link 
           href="/"
-          className="inline-flex items-center text-zinc-600 hover:text-zinc-900 transition-colors"
+          className="text-zinc-600 hover:text-zinc-900 transition-colors"
         >
           ← Back to Home
         </Link>
       </div>
       
-      <Card className="border-zinc-200 bg-white shadow-sm">
-        <CardHeader>
-          <CardTitle>{meta.title}</CardTitle>
-          <p className="text-sm text-zinc-500">{meta.date}</p>
-        </CardHeader>
-        <CardContent>
+      <div className="essay-card">
+        <div className="essay-header">
+          <h1 className="essay-title">{meta.title}</h1>
+          <p className="essay-date">{meta.date}</p>
+        </div>
+        <div className="essay-body">
           {loading ? (
             <div className="py-12 flex justify-center items-center">
               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-zinc-900"></div>
@@ -192,8 +179,8 @@ export default function EssayPage() {
           ) : (
             <div dangerouslySetInnerHTML={{ __html: essayContent }} />
           )}
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </div>
   );
 }
