@@ -20,6 +20,12 @@ const essays = [
     title: "History of Rules in Europe",
     date: "March 23, 2025",
     excerpt: "My view on why Europe fails to innovate"
+  },
+  {
+    id: "reasoning-for-programming",
+    title: "Reasoning for Programming",
+    date: "April 22, 2025",
+    excerpt: "How learning to deduce is really helpful in solving programming bugs"
   }
 ];
 

@@ -29,6 +29,10 @@ const essayMeta: EssayMetaCollection = {
   "rules-in-europe": {
     title: "History of Rules in Europe",
     date: "March 23, 2025"
+  },
+  "reasoning-for-programming": {
+    title: "Reasoning for Programming",
+    date: "April 22, 2025"
   }
   // Add more essays here when you have them
 };
@@ -102,6 +106,18 @@ export default function EssayPage() {
           
           <p>Finally, a note on the UK. I suspect the UK has immense potential to be more innovative, however much of the infrastructure should change. The UK is home to Sir Tim Berners-Lee (founder of the World Wide Web), Google's DeepMind and two of the greatest technical universities in the world (Oxbridge). The reason for the UK's stagnation in technology compared to the US is because there is instilled in it a deep service-based economy, so most technical ideas do not extend beyond these sectors (i.e. finance, retail, hospitality). Examples of great technical successes include: Revolut (pioneering digital finance), the mass adoption of self-service ordering and AI kiosks (at least in London).</p>
                   </article>`;
+        } else if (essayId === 'reasoning-for-programming') {
+          content = `<article class="essay-content">
+            <p>One thing I've found really helpful in becoming a better programmer is learning how to deduce. This was a core component of law school.</p>
+
+            <p>In a case, a successful lawyer would lay out their skeleton arguments at the very beginning following the framework "my primary limb rests on X, if not Y". Their argument would follow a series of cascading limbs upon which each subsequent argument attacks a nuanced point of law. This ensures the highest chances of overall success.</p>
+
+            <p>In a software problem, a developer aspires to save time by inferring as many clues as possible before devoting hours attacking the substantive problem itself. For example, if POST request is coming from fileA.ts, then some json object from fileB.ts isn't getting sent properly which can be deduced from network responses etc...</p>
+
+            <p>This 'deduction' phase involves making assumptions that any rational developer would make, thereby giving them the best chance of solving the crux of the problem. Most problems are not real algorithmic problems anyway, it just involves reattaching pieces of a puzzle that consists of abstractions. These abstractions are built on hard software problems solved by even smarter developers who came before.</p>
+
+            <p>This tells me traditional systems thinking and legal thinking are not too different - one focuses on the deduction of fact-patterns from human scenarios, and the other focuses on deducing logical facts of the matter in computer scenarios.</p>
+          </article>`;
           } else {
           console.error("Unknown essay ID:", essayId);
           throw new Error("Essay not found");
