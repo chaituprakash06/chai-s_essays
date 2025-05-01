@@ -106,7 +106,7 @@ export default function EssayPage() {
 
             <p>In a software problem, a developer aspires to save time by inferring as many clues as possible before devoting hours attacking the substantive problem itself. For example, if POST request is coming from fileA.ts, then some json object from fileB.ts isn't getting sent properly which can be deduced from network responses etc...</p>
 
-            <p>This 'deduction' phase involves making assumptions that any rational developer would make, thereby giving them the best chance of solving the crux of the problem. Most problems are not real algorithmic problems anyway, it just involves reattaching pieces of a puzzle that consists of abstractions. These abstractions are built on hard software problems solved by even smarter developers who came before.</p>
+            <p>This 'deduction' phase involves making assumptions that any rational developer would make, thereby giving them the best chance of solving the crux of the problem. Most problems are not real algorithmic problems anyway; they just involve reattaching pieces of a puzzle that consists of abstractions. These abstractions are built on hard software problems solved by even smarter developers who came before.</p>
 
             <p>This tells me traditional systems thinking and legal thinking are not too different - one focuses on the deduction of fact-patterns from human scenarios, and the other focuses on deducing logical facts of the matter in computer scenarios.</p>
           </article>`;
