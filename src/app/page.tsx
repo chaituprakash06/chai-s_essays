@@ -25,6 +25,12 @@ const essays = [
     title: "Reasoning for Programming",
     date: "April 22, 2025",
     excerpt: "How learning to deduce is really helpful in solving programming bugs"
+  },
+  {
+    id: "my-predictions-for-legaltech",
+    title: "LegalTech and AI",
+    date: "June 22, 2025",
+    excerpt: "Why building AI for law is harder than it sounds"
   }
 ];
 

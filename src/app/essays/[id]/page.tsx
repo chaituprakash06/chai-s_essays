@@ -32,7 +32,11 @@ const essayMeta: EssayMetaCollection = {
   "reasoning-for-programming": {
     title: "Reasoning for Programming",
     date: "April 22, 2025"
-  }
+  },
+  "my-predictions-for-legaltech": {
+    title: "LegalTech and AI",
+    date: "June 22, 2025"
+  },
   // Add more essays here when you have them
 };
 
@@ -109,6 +113,30 @@ export default function EssayPage() {
             <p>This 'deduction' phase involves making assumptions that any rational developer would make, thereby giving them the best chance of solving the crux of the problem. Most problems are not real algorithmic problems anyway; they just involve reattaching pieces of a puzzle that consists of abstractions. These abstractions are built on hard software problems solved by even smarter developers who came before.</p>
 
             <p>This tells me traditional systems thinking and legal thinking are not too different - one focuses on the deduction of fact-patterns from human scenarios, and the other focuses on deducing logical facts of the matter in computer scenarios.</p>
+          </article>`;
+          } else if (essayId === 'my-predictions-for-legaltech') {
+          content = `<article class="essay-content">
+            <p>This essay stems from a recent MIT study concluding that LLMs hampered cognitive growth. The ultimate conclusion was that test subjects who relied on LLMs struggled with memory, whilst the 'brain' subjects formed stronger neural connections.</p>
+
+            <p>At the time of writing, law appears to be a 'greenfield' of opportunity for AI startups to engineers since most legal work seems relatively simple on the surface.</p>
+
+            <p>However, the complexity and precision required in drafting legal documents is underappreciated by engineers. Legal services make money not for their production of simplistic contracts, but lawyers' guarantees to their clients that the clients' liabilities have been minimised.</p>
+
+            <p>This exerts a disproportionately high burden on the lawyers to produce the highest quality client service a) without using jargon in communicating their deliverables, b) by 'taking care' of mistakes as covertly as possible and c) whilst justifying their ridiculously high fees.</p>
+
+            <p>The way that firms do this is by instilling their junior associates with a certain rigour over their career that excellence is virtually guaranteed by the time they make partner. This inherently means juniors must repeat mundane tasks such as proofreading documents and filling out forms. Safe to say, this takes a toll on a lawyer's mental health.</p>
+
+            <p>However, the legal profession is not immmune to disruption. As computers were invented and proliferated between the 1960s to the early 2000s, lawyers benefited from indexing databases of knowledge. For transactional lawyers, this meant access to template agreements on the computer, whilst for contentious lawyers this meant easier retrieval of case law (think Westlaw).</p>
+
+            <p>We are at a point in time when LLMs are being labelled as 'Software 2.0'. Andrej Karpathy (co-founder of OpenAI and ex-Tesla engineer) has compared LLM models to operating systems and even electricity. This entire narrative conveys that 'AI' (the layman's perception of LLMs, not prexisting AI) is the new 'web', or the new computer revolution.</p>
+
+            <p>If this is true, I would conclude that the legal profession will again benefit from this innovation in the same way it did earlier. Nonetheless, this time, instead of indexing and search, it will be the convenient 'first-drafts' of contracts and elimination of laborious tasks that add value.</p>
+
+            <p> Therefore the opportunity is not in replacing lawyers - that is not what clients are paying for. The opportunity is in resolving the inherent headaches lawyers endure before they can get to reviewing their work. In other words, the opportunity is in helping lawyers save time in the initial stages of their work so they can focus more of their time on guaranteeing an excellent finished product to their clients.</p>
+
+            <p> It is up to the law firms to decide if their wish to offload this ability to accelerate tasks to clients (i.e by presenting clients with chatbots they can interact with) or to develop their own internal systems with an external guise of their service remaining the same (i.e what clients get remains unchanged).</p>
+
+            <p> It follows that there is a component of legal work that can never be replaced.</p>
           </article>`;
           } else {
           console.error("Unknown essay ID:", essayId);
